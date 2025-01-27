@@ -7,6 +7,7 @@
 #include <Update.h>
 #include "config.h"
 #include "secrets.h"
+#include "temp_hum_sim.h"
 
 WiFiClientSecure wifi;
 HttpClient client(wifi, THINGSBOARD_HOST_RAW, 443);
@@ -26,19 +27,6 @@ SystemStatus systemStatus = {
     .temperature = 0.0,
     .humidity = 0.0,
     .light_level = 0};
-
-// Simulate temperature and humidity values
-float simulateTemperature()
-{
-    // Generate a realistic temperature value (e.g., between 15 and 35 °C)
-    return random(150, 350) / 10.0;
-}
-
-float simulateHumidity()
-{
-    // Generate a realistic humidity value (e.g., between 30% and 90%)
-    return random(300, 900) / 10.0;
-}
 
 void setup()
 {
@@ -109,10 +97,15 @@ void sendToThingsBoard()
     }
 
     StaticJsonDocument<200> doc;
-    doc["brightness_sensor"] = systemStatus.light_level;
-    doc["humidity_sensor"] = systemStatus.humidity;
-    doc["moisture_sensor"] = systemStatus.soil_moisture_percentage;
-    doc["temperature_sensor"] = systemStatus.temperature;
+    // doc["brightness_sensor"] = systemStatus.light_level;
+    // doc["humidity_sensor"] = systemStatus.humidity;
+    // doc["moisture_sensor"] = systemStatus.soil_moisture_percentage;
+    // doc["temperature_sensor"] = systemStatus.temperature;
+
+    doc["brightness_sensor"] = 20;
+    doc["humidity_sensor"] = 60;
+    doc["moisture_sensor"] = 40;
+    doc["temperature_sensor"] = 17;
 
     String jsonString;
     serializeJson(doc, jsonString);
