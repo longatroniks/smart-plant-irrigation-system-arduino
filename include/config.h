@@ -2,7 +2,6 @@
 #define CONFIG_H
 
 // Pin definitions
-#define PUMP_GPIO_PIN 25
 #define PHOTO_TRANSISTOR_PIN 32
 #define SOIL_MOISTURE_PIN 33
 
@@ -16,6 +15,5 @@
 
 // Sensor and pump intervals
 #define SENSOR_INTERVAL 2000 // Interval for reading sensors in milliseconds
-#define PUMP_INTERVAL 1000   // Interval for controlling the pump in milliseconds
 
 #endif // CONFIG_H

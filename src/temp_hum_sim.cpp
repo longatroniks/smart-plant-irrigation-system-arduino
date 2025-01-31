@@ -35,12 +35,12 @@ float simulateTemperature() {
     
     // Winter (December-February)
     if (currentMonth == 12 || currentMonth <= 2) {
-        minTemp = -2.0;  // Pre-dawn winter minimum
-        maxTemp = 12.0;  // Winter afternoon maximum
+        minTemp = 5.0;  // Pre-dawn winter minimum
+        maxTemp = 15.0;  // Winter afternoon maximum
     }
     // Spring (March-May)
     else if (currentMonth >= 3 && currentMonth <= 5) {
-        minTemp = 5.0;   // Spring dawn minimum
+        minTemp = 7.0;   // Spring dawn minimum
         maxTemp = 22.0;  // Spring afternoon maximum
     }
     // Summer (June-August)

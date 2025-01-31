@@ -26,7 +26,8 @@ SystemStatus systemStatus = {
     .soil_moisture_percentage = 0,
     .temperature = 0.0,
     .humidity = 0.0,
-    .light_level = 0};
+    .light_level = 0
+};
 
 void setup()
 {
@@ -97,15 +98,10 @@ void sendToThingsBoard()
     }
 
     StaticJsonDocument<200> doc;
-    // doc["brightness_sensor"] = systemStatus.light_level;
-    // doc["humidity_sensor"] = systemStatus.humidity;
-    // doc["moisture_sensor"] = systemStatus.soil_moisture_percentage;
-    // doc["temperature_sensor"] = systemStatus.temperature;
-
-    doc["brightness_sensor"] = 20;
-    doc["humidity_sensor"] = 60;
-    doc["moisture_sensor"] = 40;
-    doc["temperature_sensor"] = 17;
+    doc["brightness_sensor"] = systemStatus.light_level;
+    doc["humidity_sensor"] = systemStatus.humidity;
+    doc["moisture_sensor"] = systemStatus.soil_moisture_percentage;
+    doc["temperature_sensor"] = systemStatus.temperature;
 
     String jsonString;
     serializeJson(doc, jsonString);
